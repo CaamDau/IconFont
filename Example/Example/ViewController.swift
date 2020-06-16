@@ -18,7 +18,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
             
-        self.tableView.cd.background(view: UIImageView(image: UIImage.cd_iconfont(CD_IconFont.temoji(80), color: UIColor.black)))
+        self.tableView.cd.background(view: UIImageView(image: UIImage.iconfont(IconFont.temoji(80), color: UIColor.black)))
     }
 }
 

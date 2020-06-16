@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import CaamDauExtension
 
-public protocol CD_IconFontProtocol{
+public protocol IconFontProtocol{
     var size:CGFloat { get }
     var text:String { get }
     var font:UIFont { get }
@@ -20,7 +20,7 @@ public protocol CD_IconFontProtocol{
     func attributedString(withAttributes a:[NSAttributedString.Key : Any]?) -> NSAttributedString
 }
 
-public extension CD_IconFontProtocol {
+public extension IconFontProtocol {
     var attributedString:NSAttributedString {
         return self.attributedString(withAttributes:nil)
     }
@@ -47,7 +47,7 @@ public extension CD_IconFontProtocol {
 
 public extension CaamDau where Base: UILabel {
     @discardableResult
-    func iconfont(_ font:CD_IconFontProtocol) -> CaamDau {
+    func iconfont(_ font:IconFontProtocol) -> CaamDau {
         base.font = font.font
         base.text = font.text
         return self
@@ -55,21 +55,21 @@ public extension CaamDau where Base: UILabel {
 }
 
 public extension CaamDau where Base: UIButton {
-    enum CD_IconFontStyle {
+    enum IconFontStyle {
         case text(_ state:UIControl.State?)
         case image(_ state:UIControl.State?, color:UIColor?)
         case bgImage(_ state:UIControl.State?, color:UIColor?)
     }
     @discardableResult
-    func iconfont(_ font:CD_IconFontProtocol, style:CD_IconFontStyle = .text(.normal)) -> CaamDau {
+    func iconfont(_ font:IconFontProtocol, style:IconFontStyle = .text(.normal)) -> CaamDau {
         switch style {
         case let .text(state):
             base.titleLabel?.font = font.font
             base.setTitle(font.text, for: state ?? .normal)
         case let .image(state, color):
-            base.setImage(UIImage.cd_iconfont(font, color:color ?? base.tintColor), for: state ?? .normal)
+            base.setImage(UIImage.iconfont(font, color:color ?? base.tintColor), for: state ?? .normal)
         case let .bgImage(state, color):
-            base.setBackgroundImage(UIImage.cd_iconfont(font, color:color ?? base.tintColor), for: state ?? .normal)
+            base.setBackgroundImage(UIImage.iconfont(font, color:color ?? base.tintColor), for: state ?? .normal)
         }
         return self
     }
@@ -77,15 +77,15 @@ public extension CaamDau where Base: UIButton {
 
 public extension CaamDau where Base: UIImageView {
     @discardableResult
-    func iconfont(_ font:CD_IconFontProtocol, color:UIColor = UIColor.cd_hex("d3", dark:"f0")) -> CaamDau {
-        base.image = UIImage.cd_iconfont(font, color:color)
+    func iconfont(_ font:IconFontProtocol, color:UIColor = UIColor.cd_hex("d3", dark:"f0")) -> CaamDau {
+        base.image = UIImage.iconfont(font, color:color)
         return self
     }
 }
 
 public extension UIImage {
     @discardableResult
-    static func cd_iconfont(_ font:CD_IconFontProtocol, color:UIColor, point:CGPoint = .zero) -> UIImage {
+    static func iconfont(_ font:IconFontProtocol, color:UIColor, point:CGPoint = .zero) -> UIImage {
         let scale = UIScreen.main.scale
         let size = font.size
         UIGraphicsBeginImageContextWithOptions(CGSize(width: size, height: size),false,0)

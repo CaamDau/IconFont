@@ -4,7 +4,7 @@
 import Foundation
 import UIKit
 import CaamDauExtension
-public enum CD_IconFont {
+public enum IconFont {
     class Help {}
     
     case tcheck(_ size:CGFloat)
@@ -131,9 +131,9 @@ public enum CD_IconFont {
     case twarn_light(_ size:CGFloat)
 }
 
-extension CD_IconFont:CD_IconFontProtocol{
+extension IconFont:IconFontProtocol{
     public var font:UIFont {
-        return UIFont.iconFont("cd_iconfont", size: self.size, forClass: CD_IconFont.Help.self, from: "CaamDauIconFont")
+        return UIFont.iconFont("cd_iconfont", size: self.size, forClass: IconFont.Help.self, from: "CaamDauIconFont")
     }
     
     public var size: CGFloat {

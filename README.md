@@ -8,7 +8,7 @@
 [![Platform](https://img.shields.io/cocoapods/p/CaamDauIconFont.svg?style=flat)](https://cocoapods.org/pods/CaamDauIconFont)
 [![](https://img.shields.io/badge/Swift-4.0~5.0-orange.svg?style=flat)](https://cocoapods.org/pods/CaamDauIconFont)
 
-# CD_IconFont 阿里矢量图标库 管理与使用范例
+# IconFont 阿里矢量图标库 管理与使用范例
 
 ## Installation
 
@@ -21,19 +21,19 @@ pod 'CaamDau/IconFont'
 > 
 #### 
 ```ruby
-self.img.cd.iconfont(CD_IconFont.temoji(60), color: UIColor.red, mode: .center)
+self.img.cd.iconfont(IconFont.temoji(60), color: UIColor.red, mode: .center)
 
-self.lab_icon.cd.iconfont(CD_IconFont.temoji(60))
+self.lab_icon.cd.iconfont(IconFont.temoji(60))
 
-self.lab_icon.cd.text(CD_IconFont.temoji(60).attributedString)
+self.lab_icon.cd.text(IconFont.temoji(60).attributedString)
 
 self.btn.cd
-    .text(CD_IconFont.temoji(60).font)
-    .text(CD_IconFont.temoji(60).text)
+    .text(IconFont.temoji(60).font)
+    .text(IconFont.temoji(60).text)
 
-self.btn.cd.text(CD_IconFont.temoji(60).attributedString)
+self.btn.cd.text(IconFont.temoji(60).attributedString)
     
-self.btn.cd.iconfont(CD_IconFont.temoji(60), style: .image(.normal, color: UIColor.red, mode: .center))
+self.btn.cd.iconfont(IconFont.temoji(60), style: .image(.normal, color: UIColor.red, mode: .center))
 ```
 #### 附：[阿里矢量图标资源管理 代码自动化脚本](https://github.com/liucaide/SapSapSeoi)
 
